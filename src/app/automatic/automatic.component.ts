@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutomaticComponent implements OnInit {
 
+  lblEmail = "Email Address";
+  lblPassword = "Password";
+  lblSignIn = "Sign in";
+  
+  PageLifeCycle = "";
+
   constructor() { }
 
   ngOnInit(): void {
+    this.PageLifeCycle += "<p>ngOnInit Called</p>";
   }
 
+  ngAfterViewInit(): void{
+    this.PageLifeCycle += "<p>ngAfterViewInit Called </p>";
+  } 
+
+  PrintName() {
+    console.log("Adil Ahmed Khan");
+  }
 }
