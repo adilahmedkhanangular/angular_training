@@ -11,6 +11,10 @@ export class AutomaticComponent implements OnInit {
   lblPassword = "Password";
   lblSignIn = "Sign in";
   
+  lblFirstName = "First Name";
+  lblLastName = "Last Name";
+  lblDOB = "Date of Birth";
+
   PageLifeCycle = "";
 
   constructor() { }
