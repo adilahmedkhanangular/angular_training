@@ -27,6 +27,10 @@ export class AutomaticComponent implements OnInit {
     this.PageLifeCycle += "<p>ngAfterViewInit Called </p>";
   } 
 
+  ngOnDestroy(): void {
+    this.PageLifeCycle += "<p>ngOnDestroy Called </p>";
+  }
+
   PrintName() {
     console.log("Adil Ahmed Khan");
   }
