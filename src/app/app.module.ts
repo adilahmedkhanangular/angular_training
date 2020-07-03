@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RightContentComponent } from './right-content/right-content.component';
 import { ManualComponent } from './manual/manual.component';
 import { AutomaticComponent } from './automatic/automatic.component';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AutomaticComponent } from './automatic/automatic.component';
     LeftNavComponent,
     RightContentComponent,
     ManualComponent,
-    AutomaticComponent
+    AutomaticComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
