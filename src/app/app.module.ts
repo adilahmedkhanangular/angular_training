@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +13,7 @@ import { RightContentComponent } from './right-content/right-content.component';
 import { ManualComponent } from './manual/manual.component';
 import { AutomaticComponent } from './automatic/automatic.component';
 import { StudentComponent } from './student/student.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { StudentComponent } from './student/student.component';
     RightContentComponent,
     ManualComponent,
     AutomaticComponent,
-    StudentComponent
+    StudentComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
