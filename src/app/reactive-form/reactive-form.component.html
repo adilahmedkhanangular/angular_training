@@ -75,9 +75,8 @@
             <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
             <div class="col-sm-10">
                 <select placeholder="Department" formControlName="department" class="form-control" id="Department">
-                    <option value="Department 1">Department 1</option>
-                    <option value="Department 2">Department 2</option>
-                    <option value="Department 3">Department 3</option>
+                    <option value="">Select Department</option>
+                    <option *ngFor="let department of Departments" [ngValue]="department" >{{department}}</option>                    
                 </select>
                 <div class="alert alert-danger" role="alert"
                     *ngIf="studentForm.controls.department.invalid && (studentForm.controls.department.dirty || studentForm.controls.department.touched)">

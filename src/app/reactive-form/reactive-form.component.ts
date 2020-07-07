@@ -11,6 +11,7 @@ export class ReactiveFormComponent implements OnInit {
   students = [];
   studentForm: FormGroup;
   showAddStudent = false;
+  Departments: any = ['Department 1', 'Department 2', 'Department 3', 'Department 4', 'Department 5']
 
   constructor(private fb: FormBuilder) { 
     this.studentForm = this.fb.group({
