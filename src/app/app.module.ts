@@ -16,6 +16,11 @@ import { ManualComponent } from './manual/manual.component';
 import { AutomaticComponent } from './automatic/automatic.component';
 import { StudentComponent } from './student/student.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,13 +34,18 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     AutomaticComponent,
     StudentComponent,
     ReactiveFormComponent,
-    CustomDatePipe
+    CustomDatePipe,
+    LoginComponent,
+    HomeComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

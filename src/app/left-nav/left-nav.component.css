@@ -1,0 +1,10 @@
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;    
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #064579;
+  }

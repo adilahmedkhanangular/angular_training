@@ -29,6 +29,15 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.students.push({
+      firstName: "Adil",
+      lastName: "Khan",
+      age: 17,
+      department: "Department 1",
+      date: new Date(),
+      time: "14:00",
+      above18: true
+    });
   }
 
   AddStudent(){
