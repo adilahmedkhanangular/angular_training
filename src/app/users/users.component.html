@@ -4,29 +4,62 @@
             <app-left-nav></app-left-nav>
         </div>
         <div class="col-md-10">
-            <p>users works!</p>
-
-            <div *ngIf="students.length > 0">
+            <div>
                 <h3> Users </h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Avatar</th>
                             <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>                        
-                            <th scope="col"></th>                            
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let student of students; let i = index">
-                            <th scope="row">{{i + 1}}</th>
-                            <td>{{student.firstName}}</td>
-                            <td>{{student.lastName}}</td>
-                            <td><input class="btn btn-info" type="button" value="Details" (click)="redirectToDetail(student)"></td>                            
+                        <tr *ngFor="let user of users; let i = index">
+                            <th scope="row">{{user.id}}</th>
+                            <td><img [src]="user.avatar" /></td>
+                            <td>{{user.first_name}}</td>
+                            <td>{{user.last_name}}</td>
+                            <td>{{user.email}}</td>
+                            <td><input class="btn btn-info" type="button" value="Details"
+                                    (click)="redirectToDetail(user.id)"></td>
+                            <td><input class="btn btn-info" type="button" value="Edit"
+                                (click)="getUserById(user.id)"></td>
+                            <td><input class="btn btn-info" type="button" value="Delete"
+                                (click)="deleteUser(user.id)"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <br />
+            <fieldset>
+                <legend>User Add</legend>
+                <form [formGroup]="userAddForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" formControlName="name" class="form-control" id="name">
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="userAddForm.controls.name.invalid && (userAddForm.controls.name.dirty || userAddForm.controls.name.touched)">
+                            <span *ngIf="userAddForm.controls.name.errors?.required">name is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="job">Job:</label>
+                        <input type="text" formControlName="job" class="form-control" id="job">
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="userAddForm.controls.job.invalid && (userAddForm.controls.job.dirty || userAddForm.controls.job.touched)">
+                            <span *ngIf="userAddForm.controls.job.errors?.required">job is required</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
+                </form>
+            </fieldset>            
         </div>
     </div>
 </div>

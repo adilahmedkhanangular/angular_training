@@ -4,14 +4,14 @@
             <app-left-nav></app-left-nav>
         </div>
         <div class="col-md-10">
-            <h3>User Details</h3>
-            <label>{{lblFirstName}}</label><br />
-            <label>{{lblLastName}}</label><br />
-            <label></label><br />
-            <label></label><br />
-            <label></label><br />
-            <label></label><br />
-            <label></label><br />
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="user.avatar" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{user.first_name}} {{user.last_name}} </h5>
+                  <p class="card-text">{{user.email}}</p>
+                  <a [routerLink]="['/Users']" class="btn btn-primary">Back</a>
+                </div>
+              </div>
         </div>
     </div>
 </div>

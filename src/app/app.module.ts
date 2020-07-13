@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {CustomDatePipe} from '../assets/custom.datepipe';
 
@@ -45,7 +46,8 @@ import { AppRoutingModule } from './app-routing.module';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,    
+    HttpClientModule // import HttpClientModule after BrowserModule.
   ],
   providers: [],
   bootstrap: [AppComponent]
