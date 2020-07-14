@@ -13,7 +13,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class UsersComponent implements OnInit {
 
-  users: User;
+  users: Array<User> = []
   userAdd: AddUser;
   userEdit: EditUser;
   editId: number;
@@ -26,8 +26,7 @@ export class UsersComponent implements OnInit {
 
   constructor(private router: Router,
     private userService: UserService,
-    private fb: FormBuilder) {
-    this.users = new User();
+    private fb: FormBuilder) {    
     this.userAddForm = this.fb.group({
       name: [null, Validators.required],
       job: [null, Validators.required]
