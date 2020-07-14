@@ -28,38 +28,67 @@
                             <td>{{user.email}}</td>
                             <td><input class="btn btn-info" type="button" value="Details"
                                     (click)="redirectToDetail(user.id)"></td>
-                            <td><input class="btn btn-info" type="button" value="Edit"
-                                (click)="getUserById(user.id)"></td>
-                            <td><input class="btn btn-info" type="button" value="Delete"
-                                (click)="deleteUser(user.id)"></td>
+                            <td><input class="btn btn-info" type="button" value="Edit" (click)="getUserById(user.id)">
+                            </td>
+                            <td><input class="btn btn-info" type="button" value="Delete" (click)="deleteUser(user.id)">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <input type="button" value="Add User" (click)="showAddUserForm()" />
             <br />
-            <fieldset>
-                <legend>User Add</legend>
-                <form [formGroup]="userAddForm">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" formControlName="name" class="form-control" id="name">
-                        <div class="alert alert-danger" role="alert"
-                            *ngIf="userAddForm.controls.name.invalid && (userAddForm.controls.name.dirty || userAddForm.controls.name.touched)">
-                            <span *ngIf="userAddForm.controls.name.errors?.required">name is required</span>
+            <div *ngIf="isShowAddUserForm">
+                <fieldset>
+                    <legend>User Add</legend>
+                    <form [formGroup]="userAddForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" formControlName="name" class="form-control" id="name">
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="userAddForm.controls.name.invalid && (userAddForm.controls.name.dirty || userAddForm.controls.name.touched)">
+                                <span *ngIf="userAddForm.controls.name.errors?.required">name is required</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="job">Job:</label>
-                        <input type="text" formControlName="job" class="form-control" id="job">
-                        <div class="alert alert-danger" role="alert"
-                            *ngIf="userAddForm.controls.job.invalid && (userAddForm.controls.job.dirty || userAddForm.controls.job.touched)">
-                            <span *ngIf="userAddForm.controls.job.errors?.required">job is required</span>
+                        <div class="form-group">
+                            <label for="job">Job:</label>
+                            <input type="text" formControlName="job" class="form-control" id="job">
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="userAddForm.controls.job.invalid && (userAddForm.controls.job.dirty || userAddForm.controls.job.touched)">
+                                <span *ngIf="userAddForm.controls.job.errors?.required">job is required</span>
+                            </div>
                         </div>
-                    </div>
-                    <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
-                </form>
-            </fieldset>            
+                        <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
+                    </form>
+                </fieldset>
+            </div>
+
+            <div *ngIf="isShowEditUserForm">
+                <fieldset>
+                    <legend>User Update</legend>
+                    <form [formGroup]="userEditForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" formControlName="name" class="form-control" id="name">
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="userEditForm.controls.name.invalid && (userEditForm.controls.name.dirty || userEditForm.controls.name.touched)">
+                                <span *ngIf="userEditForm.controls.name.errors?.required">name is required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="job">Job:</label>
+                            <input type="text" formControlName="job" class="form-control" id="job">
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="userEditForm.controls.job.invalid && (userEditForm.controls.job.dirty || userEditForm.controls.job.touched)">
+                                <span *ngIf="userEditForm.controls.job.errors?.required">job is required</span>
+                            </div>
+                        </div>
+                        <input type="hidden" formControlName="id" />
+                        <button type="button" class="btn btn-primary" (click)="updateUser($event)">Update</button>
+                    </form>
+                </fieldset>
+            </div>
         </div>
     </div>
 </div>

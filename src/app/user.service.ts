@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/model/user.model';
 import { AddUser } from 'src/app/model/adduser.model';
+import { EditUser } from 'src/app/model/edituser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class UserService {
     return this.httpclient.post(this.baseURL + "users", addUser);
   }
 
-  updateUser(addUser: AddUser) {
-    return this.httpclient.put(this.baseURL + "users", addUser);
+  updateUser(editUser: EditUser) {
+    return this.httpclient.put(this.baseURL + "users/" + editUser.id, editUser);
   }
 
   deleteUser(id: number) {
