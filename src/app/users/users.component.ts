@@ -24,9 +24,13 @@ export class UsersComponent implements OnInit {
   isShowAddUserForm = false;
   isShowEditUserForm = false;
 
+  showUserAdded = false;
+  showUserUpdated = false;
+  showUserDeleted =false;
+
   constructor(private router: Router,
     private userService: UserService,
-    private fb: FormBuilder) {    
+    private fb: FormBuilder) {
     this.userAddForm = this.fb.group({
       name: [null, Validators.required],
       job: [null, Validators.required]
@@ -50,6 +54,10 @@ export class UsersComponent implements OnInit {
   showAddUserForm() {
     this.isShowAddUserForm = true;
     this.isShowEditUserForm = false;
+
+    this.showUserAdded = false;
+    this.showUserUpdated = false;
+    this.showUserDeleted = false;
   }
 
   getUsers() {
@@ -61,13 +69,14 @@ export class UsersComponent implements OnInit {
   deleteUser(id) {
     this.userService.deleteUser(id).subscribe((res: any) => {
       console.log(res);
+      this.showUserDeleted = true;
     });
   }
 
   updateUser(event) {
     console.log(event.target.value);
 
-this.userEditForm.markAllAsTouched();
+    this.userEditForm.markAllAsTouched();
 
     if (this.userEditForm.valid) {
 
@@ -78,6 +87,8 @@ this.userEditForm.markAllAsTouched();
 
       this.userService.updateUser(this.userEdit).subscribe((res: any) => {
         console.log(res);
+        this.showUserAdded = false;
+        this.showUserUpdated = true;
       });
 
       this.userEditForm.reset();
@@ -89,6 +100,10 @@ this.userEditForm.markAllAsTouched();
 
   getUserById(id: number) {
 
+    this.showUserAdded = false;
+    this.showUserUpdated = false
+    this.showUserDeleted = false;
+    
     this.isShowAddUserForm = false;
     this.isShowEditUserForm = true;
     this.userService.getUserById(id).subscribe((res: any) => {
@@ -113,6 +128,8 @@ this.userEditForm.markAllAsTouched();
 
       this.userService.addUser(this.userAdd).subscribe((res: any) => {
         console.log(res);
+        this.showUserAdded = true;
+        this.showUserUpdated = false;
       });
 
       this.userAddForm.reset();

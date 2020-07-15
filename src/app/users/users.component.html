@@ -5,6 +5,10 @@
         </div>
         <div class="col-md-10">
             <div>
+                <div class="alert alert-success" role="alert" *ngIf="showUserDeleted">
+                    User Deleted
+                </div>
+
                 <h3> Users </h3>
                 <table class="table table-hover">
                     <thead>
@@ -43,6 +47,10 @@
                 <fieldset>
                     <legend>User Add</legend>
                     <form [formGroup]="userAddForm">
+                        <div class="alert alert-success" role="alert" *ngIf="showUserAdded">
+                                User Added
+                            </div>
+
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" formControlName="name" class="form-control" id="name">
@@ -68,6 +76,9 @@
                 <fieldset>
                     <legend>User Update</legend>
                     <form [formGroup]="userEditForm">
+                        <div class="alert alert-success" role="alert" *ngIf="showUserUpdated">
+                            User Updated
+                        </div>
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" formControlName="name" class="form-control" id="name">
