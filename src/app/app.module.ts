@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     HomeComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

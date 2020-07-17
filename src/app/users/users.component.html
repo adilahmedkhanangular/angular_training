@@ -13,8 +13,8 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th scope="col"></th>
                             <th scope="col">#</th>
-                            <th scope="col">Avatar</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
@@ -25,8 +25,8 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let user of users; let i = index">
+                            <th scope="row"><input type="checkbox" (change)="selectRow($event, user)" /></th>
                             <th scope="row">{{user.id}}</th>
-                            <td><img [src]="user.avatar" /></td>
                             <td>{{user.first_name}}</td>
                             <td>{{user.last_name}}</td>
                             <td>{{user.email}}</td>
@@ -39,6 +39,9 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <app-user-card [users]="selectedUserRows"></app-user-card>
+
             </div>
 
             <input type="button" value="Add User" (click)="showAddUserForm()" />
@@ -48,8 +51,8 @@
                     <legend>User Add</legend>
                     <form [formGroup]="userAddForm">
                         <div class="alert alert-success" role="alert" *ngIf="showUserAdded">
-                                User Added
-                            </div>
+                            User Added
+                        </div>
 
                         <div class="form-group">
                             <label for="name">Name:</label>

@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   userAdd: AddUser;
   userEdit: EditUser;
   editId: number;
+  selectedUserRows: Array<User> = []
 
   userAddForm: FormGroup;
   userEditForm: FormGroup;
@@ -58,6 +59,18 @@ export class UsersComponent implements OnInit {
     this.showUserAdded = false;
     this.showUserUpdated = false;
     this.showUserDeleted = false;
+  }
+
+  selectRow (evt: any, obj) {
+    
+    if(evt.target.checked) {      
+      this.selectedUserRows.push(obj);
+    } else {      
+      var index = this.selectedUserRows.map(x => { 
+        return x.id;
+      }).indexOf(obj.id);      
+      this.selectedUserRows.splice(index, 1);
+    }    
   }
 
   getUsers() {
